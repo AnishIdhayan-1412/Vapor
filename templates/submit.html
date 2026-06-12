@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vapor — Confess</title>
+</head>
+<body>
+    <h1>Vapor</h1>
+    <p>Say it. No name. No trace. Gone in 96 hours.</p>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.text }}
+        {% if form.text.errors %}
+            <p style="color:red;">{{ form.text.errors }}</p>
+        {% endif %}
+        <br>
+        <button type="submit">Release it</button>
+    </form>
+
+    <a href="/">← Back to feed</a>
+</body>
+</html>
